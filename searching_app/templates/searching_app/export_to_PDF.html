@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title> Результаты парсинга </title>
+    <style>
+        body{
+            background-color:black;
+        }
+        h1{
+            text-align: center;
+        }
+        table
+        {
+            border: 1px solid;
+            margin: 0 auto;
+            width:70%;
+        }
+        td, th{
+            text-align: center;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <h1>Результаты парсинга:</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        URL
+                    </th>
+                    <th>
+                        TITLE
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                    {% for person in people %}
+                   <td class="col-xs-8 url"><a href="654654">{{ person }}</a></td>
+                   <td class="col-xs-4">654654654654</td>
+                    {% endfor %}
+            </tbody>
+        </table>
+</body>
+</html>

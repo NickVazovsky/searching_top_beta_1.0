@@ -1,0 +1,83 @@
+{% extends 'searching_app/base.html' %}
+{% block content %}
+<!--<div id="page-preloader"><span class="spinner"></span></div>--></div>
+    <section id="main-banner">
+
+            <div class="row">
+                <div class="menu">
+                    <nav class="navbar navbar-default menu_top">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            {% load static %}
+                            <a href="/" class="logo"><img src="{% static 'searching_app/img/logo.png' %}"></a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="main-menu" >
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="about/">О сервисе</a></li>
+                                <li><a href="#advance">VERSUS сайтов</a></li>
+                                <li><a href="#project">Автоматический парсинг</a></li>
+                                <li><a href="contacts/">Контакты</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+
+
+        <div class="container">
+            <div class="row main-content">
+                <div class="col-md-12 text-banner text-center">
+                    Сервис для
+                    анализа вашего сайта
+                </div>
+                <div class="col-sm-12 form-search">
+                    <form method="post" action="{% url 'form' %}">{% csrf_token %}
+                       <!-- <select class="" id="sel1">
+                            <option>Яндекс</option>
+                            <option>Google</option>
+                            <option>Я&G</option>
+                        </select>--->
+                        {{ form }}
+                        <input type="text" name="analiz" class="analiz" value="Анализировать">
+                        <div class="row">
+                            <br>
+
+                        </div>
+                        <div class="change">
+                            <h3>Кто вы?</h3>
+                            <input type="hidden" name="par" id="par">
+                            <span onclick="$('#par').val('ruk')"><input type="submit" name="ruk" value="Руководитель"></span>
+                            <span onclick="$('#par').val('seo')"><input type="submit" name="seo" value="SEO-специалист"></span>
+                            <span onclick="$('#par').val('study')"><input type="submit" name="student" value="Студент"></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+<!---->
+            <div class="row">
+                <!--<div class="col-md-2 col-md-offset-10 social-button">-->
+                    <!--<ul>-->
+                        <!--<li><a href=""><img src="img/social-icon/facebook.png"></a> </li>-->
+                        <!--<li><a href=""><img src="img/social-icon/instagramm.png"></a> </li>-->
+                        <!--<li><a href=""><img src="img/social-icon/telegram.png"></a> </li>-->
+                    <!--</ul>-->
+                <!--</div>-->
+            </div>
+<!---->
+        </div>
+        <div class="footer">
+                <div class="row">
+                    <div class=" col-md-offset-8 col-md-4 col-sm-4 col-xs-6 col-xs-offset-6">
+                        {% load static %}
+                        <img src="{% static 'searching_app/img/Google.png' %}">
+                        <img src="{% static 'searching_app/img/apple.png' %}">
+                    </div>
+                </div>
+            </div>
+    </section>
+{% endblock %}

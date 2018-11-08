@@ -1,0 +1,270 @@
+
+
+
+#horizontalTab input[type=text]{
+    width: 100%;
+}
+#horizontalTab input{
+    color: black;
+    height: 30px;
+}
+#horizontalTab input[type=checkbox]{
+    width: 20px;
+    height: 20px;
+}
+.check label{
+    margin-left: 5px;
+}
+.check-style label{
+    margin-left: 5px;
+    padding-right: 10px;
+}
+#horizontalTab input[type=radio]{
+    width: 20px;
+    height: 20px;
+}
+#horizontalTab input[type=submit]{
+    width: 100%;
+    height: 30px;
+    background: white;
+    border: none;
+    color: #e31e25;
+}
+
+
+#horizontalTab textarea{
+    width: 100%;
+    min-height: 120px;
+}
+.form-brief{
+	padding-top: 5vh;
+	display: block;
+	position: relative;
+
+}
+.form-brief h1{
+    color: white;
+    padding-left: 50px;
+}
+.head-brief-opis{
+    color: white;
+    margin-top: 20px;
+    padding-right: 50px;
+}
+#brief{
+	width: 100%;
+	height: 100vh;
+	background: url(../img/brief/brief.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+/* Tabs container */
+.r-tabs {
+	width: 90%;
+	min-height: 90vh;
+	position: relative;
+	margin: auto;
+	background-color: #5a5a5a;
+
+
+
+}
+
+/* Tab element */
+.r-tabs .r-tabs-nav .r-tabs-tab {
+	position: relative;
+	background-color: #727272;
+}
+
+/* Tab anchor */
+.r-tabs .r-tabs-nav .r-tabs-anchor {
+	display: inline-block;
+	padding: 5px 12px;
+
+	text-decoration: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.4);
+	font-size: 14px;
+	font-weight: bold;
+	color: #fff;
+}
+
+/* Disabled tab */
+.r-tabs .r-tabs-nav .r-tabs-state-disabled {
+	opacity: 0.5;
+}
+
+/* Active state tab anchor */
+.r-tabs .r-tabs-nav .r-tabs-state-active .r-tabs-anchor {
+	    width: 100%;
+        color: white;
+    text-shadow: none;
+    background-color: #e31e25;
+}
+
+/* Tab panel */
+.r-tabs .r-tabs-panel {
+	margin-top: 13vh;
+    color: white;
+        padding: 0px 50px 0px 50px;
+
+}
+
+/* Accordion anchor */
+.r-tabs .r-tabs-accordion-title .r-tabs-anchor {
+	display: block;
+	padding: 10px;
+
+	background-color: #727272;
+	color: #fff;
+	font-weight: bold;
+	text-decoration: none;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.4);
+	font-size: 14px;
+
+	border-top-right-radius: 4px;
+	border-top-left-radius: 4px;
+}
+
+/* Active accordion anchor */
+.r-tabs .r-tabs-accordion-title.r-tabs-state-active .r-tabs-anchor {
+	background-color: #e31e25;
+	color: #fff;
+	text-shadow: none;
+}
+
+/* Disabled accordion button */
+.r-tabs .r-tabs-accordion-title.r-tabs-state-disabled {
+	opacity: 0.5;
+}
+
+/* Buttons */
+button {
+display: inline-block;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 10px 20px;
+    line-height: 100%;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+    vertical-align: middle;
+    font-weight: bold;
+    border: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #727272;
+    /* box-shadow: 0px 3px 0px 0px #00ab94; */
+    cursor: pointer;
+	
+	cursor: pointer;
+}
+
+button:active{
+
+background-color: #e31e25;
+}
+/* Info bar */
+.info {
+	display:inline-block;
+	margin-top: 10px;
+	margin-right: 10px;
+	padding: 10px 20px;
+	width: 300px;
+	line-height: 100%;
+
+	font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+	font-size: 14px;
+	color: #00c5ad;
+	border: 2px solid #00ab94;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	background-color: #fff;
+
+	cursor: pointer;
+} 
+
+
+.file-upload {
+         position: relative;
+    overflow: hidden;
+    height: 28px;
+    background: white;
+    /* border-radius: 3px; */
+    padding: 8px 4px;
+    
+    color: black;
+}
+.file-upload:hover {
+     background: #e31e25;
+}
+.file-upload input[type="file"]{
+    display: none; /* Обязательно скрываем настоящий Input File */
+}
+.file-upload label {
+     /* Растягиваем label на всю возможную площадь блока .file-upload */
+     display: block;
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     cursor: pointer;
+}
+.file-upload span {
+     line-height: 29px; /* Делаем вертикальное выравнивание текста, который написан на кнопке */
+}
+
+
+
+
+.r-tabs .r-tabs-nav {
+/*
+    margin: 0;
+    padding: 0;
+*/
+    padding-left: 15px;
+    margin-top: 4vh;
+}
+
+.r-tabs .r-tabs-tab {
+    display: block;
+    float: left;
+    width: 20%;
+    list-style: none;
+    margin-left: 3vw;
+}
+
+.r-tabs .r-tabs-panel {
+    padding: 15px;
+    display: none;
+}
+
+.r-tabs .r-tabs-accordion-title {
+    display: none;
+}
+
+.r-tabs .r-tabs-panel.r-tabs-state-active {
+    display: block;
+}
+
+/* Accordion responsive breakpoint */
+@media only screen and (max-width: 768px) {
+    .r-tabs .r-tabs-nav {
+        display: none;
+    }
+    .form-brief h1 {
+        color: white;
+        padding-left: 22px!important;
+}
+    .r-tabs .r-tabs-panel {
+        margin-top: 3vh!important;
+    }
+
+    .r-tabs .r-tabs-accordion-title {
+        display: block;
+    }
+}
+

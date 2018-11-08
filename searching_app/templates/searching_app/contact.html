@@ -1,0 +1,67 @@
+{% extends 'searching_app/base.html' %}
+{% block content %}
+<section id="about-banner">
+
+            <div class="menu">
+                <nav class="navbar navbar-default menu_top">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        {% load static %}
+                        <a href="form.html" class="logo"><img src="{% static 'searching_app/img/logo.png' %}"></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="main-menu" >
+                        <ul class="nav navbar-nav navbar-right">
+                             <li><a href="about/">О сервисе</a></li>
+                             <li><a href="#advance">VERSUS сайтов</a></li>
+                             <li><a href="#project">Автоматический парсинг</a></li>
+                             <li><a href="contacts/">Контакты</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+</section>
+<div class="text-center">
+    <h1>Контакты</h1>
+</div>
+<section class="map-contacts">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2243.6737452716125!2d37.709111015578095!3d55.78153799724333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54ad610abc8a5%3A0xc42703145fe53a8d!2z0JzQvtGB0LrQvtCy0YHQutC40Lkg0L_QvtC70LjRgtC10YXQvdC40YfQtdGB0LrQuNC5INGD0L3QuNCy0LXRgNGB0LjRgtC10YI!5e0!3m2!1sru!2sru!4v1512749282473" width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <div class="map-text">
+        <ul>
+            <li>Адресс: Большая семеновская д. 34</li>
+            <li>Телефон: 8919555555</li>
+            <li>E-mail: searching_top@yandex.ru</li>
+            <li>Telegram: 8919555555</li>
+            <li class="map-form">Напишите нам</li>
+        </ul>
+    </div>
+    <div class="form-map">
+        {% load static %}
+        <img src="{% static 'searching_app/img/konvert.png' %}" class="text-center">
+        <h3>Напишите нам</h3>
+        <form method="POST" action="">
+            <div class="col-md-12">
+                <label class="text-center">Введите имя:</label><br>
+                <input type="text" name="name">
+            </div>
+            <div class="col-md-12">
+                <label class="text-center">Введите E-mail:</label><br>
+                <input type="text" name="mail">
+            </div>
+            <div class="col-md-12">
+                <label class="text-center">Введите сообщение:</label><br>
+                <textarea name="mess"></textarea>
+            </div>
+            <div class="col-md-12">
+                <input type="submit" value="Отправить">
+            </div>
+        </form>
+    </div>
+</section>
+
+{% endblock %}

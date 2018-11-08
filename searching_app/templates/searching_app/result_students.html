@@ -1,0 +1,792 @@
+{% extends 'searching_app/base.html' %}
+{% block content %}
+<section id="about-banner">
+
+            <div class="menu">
+                <nav class="navbar navbar-default menu_top">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                           {% load static %}
+                        <a href="/" class="logo"><img src="{% static 'searching_app/img/logo.gif' %}"></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="main-menu" >
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="about/">О сервисе</a></li>
+                            <li><a href="#advance">VERSUS сайтов</a></li>
+                            <li><a href="#project">Автоматический парсинг</a></li>
+                            <li><a href="contacts/">Контакты</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+
+</section>
+<section id="content-pars">
+    <div class="container">
+        <div class="row main-content">
+            <div class="col-md-12 text-banner text-center">
+                <h1>Результаты анализа</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row tab-menu">
+             <div class="col-md-2 col-sm-2 tab-result ">
+                <h2 class="">
+                    <a id="opt-pars" class="active opt-tab" >Оптимизация</a>
+                </h2>
+            </div>
+            <div class="col-md-2 col-sm-2 tab-result">
+                <h2 class="">
+                    <a id="index-pars" class="index-tab" >Индексация</a>
+                </h2>
+            </div>
+            <div class="col-md-offset-6 col-md-2 col-sm-2 tab-result">
+                <h2 class="">
+                    <a id="download-list">Скачать отчет</a>
+                </h2>
+            </div>
+        </div>
+    <div class="down-list-varius">
+        <a class="close-export">
+            <i class="fa fa-times"></i>
+        </a>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>Экспорт анализа</h1>
+                </div>
+                <div class="col-md-12 text-center">
+                    <p>Вы можете скачать результаты парсинга сайта в различных форматах.</p>
+                </div>
+                <div class="col-md-12 text-center">
+                    <form method="post" action="">{% csrf_token %}
+                        <select class="" id="sel1">
+                            <option><a id="excell" href="xls_formats/">Excel</a></option>
+                            <option><a id="csv" href="csv_formats/">CSV</a></option>
+                            <option>PDF</option>
+                        </select>
+<script>
+     var result = {
+'excell': {
+link: '<a href="http://127.0.0.1:8000/xls_formats/">Скачать</a>'
+}}
+document.getElementById("sel1").addEventListener("change", function(){
+
+if (this.value == 'Excel') {
+document.location.href = "http://127.0.0.1:8000/xls_formats/";
+}
+if (this.value == 'CSV') {
+document.location.href = "http://127.0.0.1:8000/csv_formats/";
+}
+});
+
+</script>
+
+                        <div class="row">
+                            <br>
+                    </div>
+            </form>
+        </div>
+    </div>
+        </div>
+    </div>
+    <div class="optim-block">
+        <div class="optimiz">
+    <section class="">
+
+            <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-5 col-md-5">
+                                <h3>Tittle:<span class="example-popover" data-toggle="popover" data-placement="top" title="Popover title"
+                                           data-content="And here's some amazing content. It's very engaging. Right?">
+                                            <i class="glyphicon glyphicon-info-sign"
+                                           aria-hidden="true"> </i>
+                                        </span></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h3>Другие страницы:</h3>
+                            </div>
+
+                            <div class="col-md-12">
+                                <table class="table table-fixed">
+                                <thead>
+                                <tr>
+                                    <th class="col-xs-8">URL</th>
+                                    <th class="col-xs-4">Tittle</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                  {% for key,value in title %}
+                                    <td class="col-xs-8 url"><a href="{{ key }}">{{ key }}</a></td>
+                                    <td class="col-xs-4">{{ value }}</td>
+                                  {% endfor %}
+
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12">
+
+                                <h3>Keywords:<span class="example-popover" data-toggle="popover" data-placement="top" title="Popover title"
+                                           data-content="And here's some amazing content. It's very engaging. Right?">
+                                            <i class="glyphicon glyphicon-info-sign"
+                                           aria-hidden="true"> </i>
+                                        </span></h3>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h3>Другие страницы:</h3>
+                            </div>
+                            <div class="col-md-12">
+                                <table class="table table-fixed">
+                                    <thead class="thead-inverse">
+                                    <tr>
+                                        <th class="col-xs-8">URL</th>
+                                        <th class="col-xs-4">Keywords</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                       {% for key,value in keywords %}
+                                    <tr>
+                                        <td class="col-xs-8 url"><a href="{{ key }}">{{ key }}</a></td>
+                                        <td class="col-xs-4">{{ value }}</td>
+                                    </tr>
+                                    {% endfor %}
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12">
+
+                                <h3>Description:<span class="example-popover" data-toggle="popover" data-placement="top" title="Popover title"
+                                           data-content="And here's some amazing content. It's very engaging. Right?">
+                                            <i class="glyphicon glyphicon-info-sign"
+                                           aria-hidden="true"> </i>
+                                        </span><br></h3>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h3>Другие страницы:</h3>
+                            </div>
+                            <div class="col-md-12">
+                                <table class="table table-fixed">
+                                    <thead class="thead-inverse">
+                                    <tr>
+                                        <th class="col-xs-8">URL</th>
+                                        <th class="col-xs-4">description</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                     {% for key,value in description %}
+                                    <tr>
+                                        <td class="col-xs-8 url"><a href="{{ key }}">{{ key }}</a></td>
+                                        <td class="col-xs-4">{{ value }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+        </section>
+                <section class="part-pars">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        <h3>H1:<span class="example-popover" data-toggle="popover" data-placement="top" title="Popover title"
+                                           data-content="And here's some amazing content. It's very engaging. Right?">
+                                            <i class="glyphicon glyphicon-info-sign"
+                                           aria-hidden="true"> </i>
+                                        </span></h3>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h3>Другие страницы:</h3>
+                            </div>
+                            <div class="col-md-12">
+                                <table class="table table-fixed">
+                                    <thead class="thead-inverse">
+                                    <tr>
+                                        <th class="col-xs-8">URL</th>
+                                        <th class="col-xs-4">H1</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                         {% for key,value in h1 %}
+                                        <td class="col-xs-8 url"><a href="{{ key }}">{{ key }}</a></td>
+                                        <td class="col-xs-4">{{ value }}</td>
+                                        {% endfor %}
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Кол-во загаловков на сайте:</h3>
+                    </div>
+                    <div class="col-md-12">
+                        <table class="table table-fixed">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th class="col-xs-3">H1</th>
+                                <th class="col-xs-3">H2</th>
+                                <th class="col-xs-3">H3</th>
+                                <th class="col-xs-3">H4</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="col-xs-3">1</td>
+                                <td class="col-xs-3">5</td>
+                                <td class="col-xs-3">3</td>
+                                <td class="col-xs-3">2</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                    </section>
+
+    <section class="">
+
+                <div class="row">
+                    <div class="col-md-3 col-sm-3">
+                        <h3>Битые ссылки <span class="example-popover" data-toggle="popover" data-placement="top" title="Popover title"
+                                           data-content="And here's some amazing content. It's very engaging. Right?">
+                                            <i class="glyphicon glyphicon-info-sign"
+                                           aria-hidden="true"> </i>
+                                        </span></h3>
+                    </div>
+                    <div class="col-md-9 col-sm-9">
+                        <p>Колличество <span> 15 </span></p>
+                    </div>
+                    <div class="col-md-12">
+                        <table class="table table-fixed">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th class="col-xs-8">Link</th>
+                                <th class="col-xs-4">Error</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                {% for key,value in broken_links %}
+                                       <td class="col-xs-8 url"> <a href="{{ key }}">{{ key }}</a></td>
+                                <td class="col-xs-4">{{ value }}</td>
+                                {% endfor %}
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3 col-sm-3">
+                        <h3>Заспамленность:</h3>
+                    </div>
+                    <div class="col-md-9 col-sm-9">
+                        <p>18%</p>
+                    </div>
+                    <div class="col-md-12">
+                        <table class="table table-fixed">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th class="col-xs-6">URL</th>
+                                <th class="col-xs-6">%</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="col-xs-6">https://docs.google.com/document/d/1gAt</td>
+                                <td class="col-xs-6">14</td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-6">https://docs.google.com/document/d/1edit</td>
+                                <td class="col-xs-6">43</td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-6">https://docs.google.com/document/d/1t</td>
+                                <td class="col-xs-6">43</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+        </section>
+    <section class="part-pars">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12">
+                        <h3>Кол-во слов и тошнота:</h3>
+                    </div>
+                    <div class="col-md-12">
+                        <table class="table table-fixed">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th class="col-xs-4">URL</th>
+                                <th class="col-xs-4">Кол-во слов</th>
+                                <th class="col-xs-4">Тошнотность %</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="col-xs-4">https://docs.google.com/document/d/1gAt</td>
+                                <td class="col-xs-4">14</td>
+                                <td class="col-xs-4">14</td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-4">https://docs.google.com/document/d/1edit</td>
+                                <td class="col-xs-4">43</td>
+                                <td class="col-xs-4">43</td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-4">https://docs.google.com/document/d/1t</td>
+                                <td class="col-xs-4">43</td>
+                                <td class="col-xs-4">43</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+        </section>
+    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-5 col-md-5">
+                                <h3>Google-Adwords:<br></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h3>Другие страницы:</h3>
+                            </div>
+
+                            <div class="col-md-12">
+                                <table class="table table-fixed">
+                                <thead>
+                                <tr>
+                                    <th class="col-xs-8">URL</th>
+                                    <th class="col-xs-4">Google-Analytics</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                         {% for key,value in google_adwords %}
+                                        <td class="col-xs-8 url">{{ key }}</td>
+                                        <td class="col-xs-4">{{ value }}</td>
+                                        {% endfor %}
+                                    </tr>
+
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+         <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-5 col-md-5">
+                                <h3>Яндекс метрика:<br></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h3>Другие страницы:</h3>
+                            </div>
+
+                            <div class="col-md-12">
+                                <table class="table table-fixed">
+                                <thead>
+                                <tr>
+                                    <th class="col-xs-8">URL</th>
+                                    <th class="col-xs-4">Yandex Metricks</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                         {% for key,value in yandex_metricks %}
+
+                                        <td class="col-xs-8 url">{{ key }}</td>
+                                             <td class="col-xs-4">{{ value }}</td>
+                                        {% endfor %}
+                                    </tr>
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+    </div>
+</div>
+
+<div class="index-block">
+    <div class="index">
+        <div class="row tab-menu">
+             <div class="col-md-2 col-sm-2 tab-result ">
+                <h2 class="">
+                    <a id="ya" class="active action-ya" >Яндекс</a>
+                </h2>
+            </div>
+            <div class="col-md-2 col-sm-2 tab-result">
+                <h2 class="">
+                    <a id="goo" class="action-go" >Google</a>
+                </h2>
+            </div>
+        </div>
+            <section class="part-pars">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="yandex">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    <h3>Позиция в поисковой выдачи Яндекса:</h3>
+                                </div>
+                                <div class="col-md-12">
+                                    <table class="table table-fixed">
+                                        <thead class="thead-inverse">
+                                        <tr>
+                                            <th class="col-xs-6">Место</th>
+                                            <th class="col-xs-6">Страница</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td class="col-xs-6">https://docs.google.com/document/d/1gAt</td>
+                                            <td class="col-xs-6">14</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-6">https://docs.google.com/document/d/1edit</td>
+                                            <td class="col-xs-6">43</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-xs-6">https://docs.google.com/document/d/1t</td>
+                                            <td class="col-xs-6">43</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-12">
+                                    <h3>Сниппет</h3>
+                                </div>
+                                <div class="col-md-12 snipet">
+                                    <h3>Проверка текста на уникальность онлайн, эффективный.</h3>
+                                    <a href="">text.ru</a>
+                                    <p>Сервис онлайн проверки текста на уникальность TEXT.RU покажет процент уникальности текста.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="google">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    <h3>Позиция в поисковой выдачи Google:</h3>
+                                </div>
+                                <div class="col-md-12">
+                                    <table class="table table-fixed">
+                                        <thead class="thead-inverse">
+                                        <tr>
+                                            <th class="col-xs-6">Место</th>
+                                            <th class="col-xs-6">Страница</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="col-xs-6">https://docs.google.com/document/d/1gAt</td>
+                                                <td class="col-xs-6">14</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-xs-6">https://docs.google.com/document/d/1edit</td>
+                                                <td class="col-xs-6">43</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="col-xs-6">https://docs.google.com/document/d/1t</td>
+                                                <td class="col-xs-6">43</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-12">
+                                    <h3>Сниппет</h3>
+                                </div>
+                                <div class="col-md-12 snipet">
+                                    <h3>Проверка текста на уникальность онлайн, эффективный.</h3>
+                                    <a href="">text.ru</a>
+                                    <p>Сервис онлайн проверки текста на уникальность TEXT.RU покажет процент уникальности текста.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+          <section class="">
+
+            <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-5 col-md-5">
+                                <h3>Vk:<span class="example-popover" data-toggle="popover" data-placement="top" title="Popover title"
+                                           data-content="And here's some amazing content. It's very engaging. Right?">
+                                            <i class="glyphicon glyphicon-info-sign"
+                                           aria-hidden="true"> </i>
+                                        </span></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h3>Другие страницы:</h3>
+                            </div>
+
+                            <div class="col-md-12">
+                                <table class="table table-fixed">
+                                <thead>
+                                <tr>
+                                    <th class="col-xs-8">URL</th>
+                                    <th class="col-xs-4">Vk</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                  {% for key,value in vk %}
+                                    <td class="col-xs-8 url"><a href="{{ key }}">{{ key }}</a></td>
+                                    <td class="col-xs-4">{{ value }}
+
+                                        <span class="example-popover" data-toggle="popover" data-placement="top" title="Popover title"
+                                           data-content="And here's some amazing content. It's very engaging. Right?">
+                                            <i class="glyphicon glyphicon-info-sign"
+                                           aria-hidden="true"> </i>
+                                        </span>
+                                       </td>
+                                  {% endfor %}
+
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+         </section>
+     <section class="">
+
+            <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-5 col-md-5">
+                                <h3>Facebook:<span class="example-popover" data-toggle="popover" data-placement="top" title="Popover title"
+                                           data-content="And here's some amazing content. It's very engaging. Right?">
+                                            <i class="glyphicon glyphicon-info-sign"
+                                           aria-hidden="true"> </i>
+                                        </span></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h3>Другие страницы:</h3>
+                            </div>
+
+                            <div class="col-md-12">
+                                <table class="table table-fixed">
+                                <thead>
+                                <tr>
+                                    <th class="col-xs-8">URL</th>
+                                    <th class="col-xs-4">Facebook</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                  {% for key,value in facebook %}
+                                    <td class="col-xs-8 url"><a href="{{ key }}">{{ key }}</a></td>
+                                    <td class="col-xs-4">{{ value }}
+
+                                        <span class="example-popover" data-toggle="popover" data-placement="top" title="Popover title"
+                                           data-content="And here's some amazing content. It's very engaging. Right?">
+                                            <i class="glyphicon glyphicon-info-sign"
+                                           aria-hidden="true"> </i>
+                                        </span>
+                                       </td>
+                                  {% endfor %}
+
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+     </section>
+     <section class="">
+
+            <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-5 col-md-5">
+                                <h3>Instagram:<span class="example-popover" data-toggle="popover" data-placement="top" title="Popover title"
+                                           data-content="And here's some amazing content. It's very engaging. Right?">
+                                            <i class="glyphicon glyphicon-info-sign"
+                                           aria-hidden="true"> </i>
+                                        </span></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h3>Другие страницы:</h3>
+                            </div>
+
+                            <div class="col-md-12">
+                                <table class="table table-fixed">
+                                <thead>
+                                <tr>
+                                    <th class="col-xs-8">URL</th>
+                                    <th class="col-xs-4">instagram</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                  {% for key,value in instagram %}
+                                    <td class="col-xs-8 url"><a href="{{ key }}">{{ key }}</a></td>
+                                    <td class="col-xs-4">{{ value }}
+
+                                        <span class="example-popover" data-toggle="popover" data-placement="top" title="Popover title"
+                                           data-content="And here's some amazing content. It's very engaging. Right?">
+                                            <i class="glyphicon glyphicon-info-sign"
+                                           aria-hidden="true"> </i>
+                                        </span>
+                                       </td>
+                                  {% endfor %}
+
+                                </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+     </section>
+        </div>
+</div>
+
+</section>
+<!-- <div id="result-optim">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 tab-result ">
+                <h2 class="text-center"><a href="result-ruk.html"> Общая оценка</a></h2>
+            </div>
+            <div class="col-md-3 col-sm-3 tab-result ">
+                <h2 class="text-center">
+                    <ul>
+                        <li class="dropdown">
+                            <a href="result-ruk-seo.html" class="dropdown-toggle" data-toggle="dropdown">Оптимизация<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="result-ruk-seo.html" class="tkd-js">Tittle, Keywords, Description</a></li>
+                                <li><a href="result-ruk-seo.html" class="header-js">Заголовки</a></li>
+                                <li><a href="result-ruk-seo.html" class="untext-js">Уникальность текста</a></li>
+                                <li><a href="result-ruk-seo.html" class="erlink-js">Битые ссылки, счетчики</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </h2>
+            </div>
+            <div class="col-md-3 col-sm-3 tab-result">
+                <h2 class="text-center">
+                    <ul>
+                        <li class="dropdown">
+                            <a href="result-ruk-index.html" class="dropdown-toggle" data-toggle="dropdown">Индексация<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="result-ruk-index.html" class="yaruk-js">Яндекс</a></li>
+                                <li><a href="result-ruk-index.html" class="goruk-js">Google</a></li>
+                                <li><a href="result-ruk-index.html" class="smmruk-js">Социальные сети</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </h2>
+            </div>
+            <div class="col-md-3 col-sm-3 tab-result">
+                <h2 class="text-center"><a href="exportdate.html">Экспорт данных</a></h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main-mark">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mark-shad">
+                <div class="row">
+            <div class="col-md-5 col-sm-5">
+                <img src="img/desktop.png">
+            </div>
+            <div class="col-md-7 col-sm-7">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        <a href="">kuznecovskyfarfor.ru</a>
+                        <p>December 2, 2017 10:55 PM</p>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6">
+                        fdsjfsdhfksj
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+              <h2 class="text-center">На вашем сайте выявленно много ошибок, связанных с <a href="">SEO-оптимизацией</a></h2>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div> -->
+
+
+{% endblock %}

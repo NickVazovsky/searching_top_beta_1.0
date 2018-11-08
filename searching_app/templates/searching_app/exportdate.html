@@ -1,0 +1,105 @@
+{% extends 'searching_app/base.html' %}
+{% block content %}
+<section id="about-banner">
+    <div class="container">
+        <div class="row">
+            <div class="menu">
+                <nav class="navbar navbar-default menu_top">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        {% load static %}
+                        <a href="form.html" class="logo"><img src="{% static 'searching_app/img/logo.gif' %}"></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="main-menu" >
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="about.html">О сервисе</a></li>
+                            <li><a href="#advance">VERSUS сайтов</a></li>
+                            <li><a href="#project">Автоматический парсинг</a></li>
+                            <li><a href="contacts.html">Контакты</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row main-content">
+            <div class="col-md-12 text-banner text-center">
+                <h1>Результаты парсинга</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<div id="result-optim">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-3 tab-result ">
+                <h2 class="text-center"><a href="result-ruk.html"> Общая оценка</a></h2>
+            </div>
+            <div class="col-md-3 col-sm-3 tab-result ">
+                <h2 class="text-center">
+                    <ul>
+                        <li class="dropdown">
+                            <a href="result-ruk-seo.html" class="dropdown-toggle" data-toggle="dropdown">Оптимизация<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="result-ruk-seo.html" class="tkd-js">Tittle, Keywords, Description</a></li>
+                                <li><a href="result-ruk-seo.html" class="header-js">Заголовки</a></li>
+                                <li><a href="result-ruk-seo.html" class="untext-js">Уникальность текста</a></li>
+                                <li><a href="result-ruk-seo.html" class="erlink-js">Битые ссылки, счетчики</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </h2>
+            </div>
+            <div class="col-md-3 col-sm-3 tab-result">
+                <h2 class="text-center">
+                    <ul>
+                        <li class="dropdown">
+                            <a href="result-ruk-index.html" class="dropdown-toggle" data-toggle="dropdown">Индексация<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="result-ruk-index.html" class="yaruk-js">Яндекс</a></li>
+                                <li><a href="result-ruk-index.html" class="goruk-js">Google</a></li>
+                                <li><a href="result-ruk-index.html" class="smmruk-js">Социальные сети</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </h2>
+            </div>
+            <div class="col-md-3 col-sm-3 tab-result">
+                <h2 class="text-center"><a href="exportdate.html">Экспорт данных</a></h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row exportdate">
+        <div class="col-md-12 text-center">
+            <h1>Экспорт анализа</h1>
+        </div>
+        <div class="col-md-12 text-center">
+            <p>Вы можете скачать результаты парсинга сайта в различных форматах.</p>
+        </div>
+        <div class="col-md-12 text-center">
+            <form method="post">
+                <select class="" id="sel1">
+                    <option>Excell</option>
+                    <option>CSV</option>
+                    <option>PDF</option>
+                </select>
+                <input type="submit" name="analiz" value="Скачать">
+                <div class="row">
+                    <br>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
